@@ -49,9 +49,9 @@ namespace LeetCode.CSharp
             ListNode cur = answer;
             while (true)
             {
-                int sum = 
-                    cur.val + 
-                    (l1?.val).GetValueOrDefault() + 
+                int sum =
+                    cur.val +
+                    (l1?.val).GetValueOrDefault() +
                     (l2?.val).GetValueOrDefault();
 
                 cur.val = sum % 10;
@@ -69,6 +69,30 @@ namespace LeetCode.CSharp
                         cur.next = new ListNode(1);
                     break;
                 }
+            }
+
+            return answer;
+        }
+
+
+        public int LengthOfLongestSubstring(string s)
+        {
+            int answer = default;
+
+            foreach (var sub in s.Select((c, index) => s[index..]))
+            {
+                int count = 0;
+                for (int i = 0; i < sub.Length; i++)
+                {
+                    var check = sub[0..i];
+                    var c = sub[i];
+
+                    if (!check.Contains(c))
+                        count++;
+                    else
+                        break;
+                }
+                if (count > answer) answer = count;
             }
 
             return answer;
