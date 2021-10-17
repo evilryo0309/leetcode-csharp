@@ -100,5 +100,29 @@ namespace LeetCode.CSharp
 
             return answer;
         }
+
+        /// <summary>
+        /// 4. Median of Two Sorted Arrays
+        /// https://leetcode.com/problems/median-of-two-sorted-arrays/
+        /// </summary>
+        public double FindMedianSortedArrays(int[] nums1, int[] nums2)
+        {
+            double answer = default;
+
+            var query = nums1.Concat(nums2)
+                .OrderBy(i => i)
+                .ToArray();
+
+            if (query.Length % 2 == 0)
+            {
+                answer = (query[query.Length / 2] + query[query.Length / 2 - 1]) / 2d;
+            }
+            else
+            {
+                answer = query[(query.Length - 1) / 2];
+            }
+
+            return answer;
+        }
     }
 }
