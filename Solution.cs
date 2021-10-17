@@ -74,7 +74,10 @@ namespace LeetCode.CSharp
             return answer;
         }
 
-
+        /// <summary>
+        /// 3. Longest Substring Without Repeating Characters
+        /// https://leetcode.com/problems/longest-substring-without-repeating-characters/
+        /// </summary>
         public int LengthOfLongestSubstring(string s)
         {
             int answer = default;
